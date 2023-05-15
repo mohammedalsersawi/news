@@ -23,7 +23,7 @@ const storeUser=(req,res,next)=>{
 
 
     var name=req.body.name;
-    var phone=req.body.phone;
+    // var phone=req.body.phone;
     var email=req.body.email;
     var imagepath="safdsafsaf";
     var password=req.body.password;
@@ -46,9 +46,9 @@ const storeUser=(req,res,next)=>{
 const updateUser=(req,res)=>{
     var id=req.body.id
     var name=req.body.name;
-    var phone=req.body.phone;
+    // var phone=req.body.phone;
     var email=req.body.email;
-    userModel.findByIdAndUpdate({_id:id},{name:name,phone:phone,email:email}).then((data)=>{
+    userModel.findByIdAndUpdate({_id:id},{name:name,email:email}).then((data)=>{
         res.status(201).json({"staus":true,"data":data})
     }).catch((err)=>{
         res.status(400).json({"staus":false,"error":err})

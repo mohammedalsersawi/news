@@ -2,7 +2,8 @@ const {scrapeWebPageMain,scrapeWebPageDeatils}=require('../ulits/scraperMain')
 
 const getDataMain=(req,res)=>{
     const url = 'https://www.alwatanvoice.com/arabic/index.html';
-    scrapeWebPageMain(url)
+    const category =  req.params.category;
+    scrapeWebPageMain(url ,category)
         .then(data => {
             res.status(201).json(data)
         })

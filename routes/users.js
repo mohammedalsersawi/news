@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const auth = require("../middleware/authMeddleware");
 const validator=require('../middleware/validatoMiddlewere')
 const { param,body,check, validationResult } = require('express-validator');
@@ -17,25 +17,25 @@ router.post('/regester',
             }
         })
     ),
-    body('phone').notEmpty().withMessage('phone required').
-    custom((val)=>
-        userModel.findOne({phone:val}).then((data)=>{
-            if(data){
-                return Promise.reject(new Error("phone already in user"))
-            }
-        })
-    ),
+    // body('phone').notEmpty().withMessage('phone required').
+    // custom((val)=>
+    //     userModel.findOne({phone:val}).then((data)=>{
+    //         if(data){
+    //             return Promise.reject(new Error("phone already in user"))
+    //         }
+    //     })
+    // ),
     body('password').notEmpty().withMessage('password required').isLength({min:6,max:25}).
     custom((password,{req})=>{
-     if (password !== req.body.passwordConfaim){
-         console.log(req.body.passwordConfaim)
-         console.log(password)
-
-         throw new Error("Password Conformation incorrect")
-     }
+     // if (password !== req.body.passwordConfaim){
+     //     console.log(req.body.passwordConfaim)
+     //     console.log(password)
+     //
+     //     throw new Error("Password Conformation incorrect")
+     // }
      return true
     }),
-    body('passwordConfaim').notEmpty().withMessage('password required').isLength({min:6,max:25}),
+    // body('passwordConfaim').notEmpty().withMessage('password required').isLength({min:6,max:25}),
 
 validator,register.storeUser);
 

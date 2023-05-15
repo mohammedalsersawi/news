@@ -14,11 +14,11 @@ const usertSchema=mongoose.Schema({
         unique:true,
         type:String,
     },
-    phone:{
-        required:[ true,"phone required"],
-        unique:true,
-        type:String,
-    },
+    // phone:{
+    //     required:[ true,"phone required"],
+    //     unique:true,
+    //     type:String,
+    // },
     password:{
         required:[ true,"password required"],
         type:String,
